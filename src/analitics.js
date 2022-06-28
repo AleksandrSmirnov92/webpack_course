@@ -1,15 +1,17 @@
+import * as $ from "jquery";
 let createAnalitics = () => {
   let counter = 0;
-  let isDestroyed = false;
+  let Destroyed = false;
+
   let listener = () => counter++;
-  document.addEventListener("click", listener);
+  $(document).on("click", listener);
   return {
     destroy() {
-      document.removeEventListener("click", listener);
-      isDestroyed = true;
+      $(document).of("click", listener);
+      Destroyed = true;
     },
     onClicks() {
-      if (isDestroyed) {
+      if (Destroyed) {
         return "Analitics is destroyed";
       }
       return counter;

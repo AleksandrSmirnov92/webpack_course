@@ -1,4 +1,6 @@
-import Post from "./post";
-
+import Post from "@models/post";
+import * as $ from "jquery";
+import "@/styles/styles";
 const post = new Post("webpack post title");
-console.log(post.toString());
+$("pre").html(post.toString());
+// console.log(post.toString());
